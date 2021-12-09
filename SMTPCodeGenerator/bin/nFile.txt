@@ -1,0 +1,135 @@
+#region CardType Commands
+ 
+public static DataTable DtCardType(string sConnection)
+{
+   //Comando para leer Tabla
+   OleDbCommand SpCardTypeLoad = new OleDbCommand("SELECT CardType, PKID_CardType FROM CardType");
+ 
+DataTable DtCardType = new DataTable();
+Object[] oRow = new object[2];
+
+DtCardType.Columns.Add("CardType");DtCardType.Columns.Add("PKID_CardType");
+ 
+SMTConnection.ConnectionString = sConnection;
+SpCardTypeLoad.Connection = SMTConnection;
+SMTConnection.Open();
+ 
+OleDbDataReader Dreader = SpCardTypeLoad.ExecuteReader();
+while (Dreader.Read())
+{
+oRow[0] = Convert.ToString(Dreader["CardType"]);oRow[1] = Convert.ToInt32(Dreader["PKID_CardType"]);
+DtCardType.Rows.Add(oRow);
+}
+ 
+Dreader.Close();
+SMTConnection.Close();
+SMTConnection.Dispose();
+ 
+return DtCardType;
+} 
+ 
+public static DataTable DtRowCardType(string sConnection, int iPKID_CardType)
+ 
+{
+   //Comando para leer linea de la Tabla
+   OleDbCommand SpCardTypeLoadRow = new OleDbCommand("SELECT CardType FROM CardType WHERE (CardType.PKID_CardType = ?)");
+ 
+DataTable DtRowCardType = new DataTable();
+Object[] oRow = new object[1];
+DtRowCardType.Columns.Add("CardType");
+ 
+SMTConnection.ConnectionString = sConnection;
+SpCardTypeLoadRow.Connection = SMTConnection;
+SpCardTypeLoadRow.Parameters.Add("PKID_CardType", OleDbType.Integer);
+SpCardTypeLoadRow.Parameters[0].Value = iPKID_CardType;
+ 
+SMTConnection.Open();
+ 
+OleDbDataReader Dreader = SpCardTypeLoadRow.ExecuteReader();
+while (Dreader.Read())
+{
+oRow[0] = Convert.ToString(Dreader["CardType"]);
+DtRowCardType.Rows.Add(oRow);
+}
+ 
+Dreader.Close();
+SMTConnection.Close();
+SMTConnection.Dispose();
+ 
+return DtRowCardType;
+} 
+ 
+ 
+public static int AddCardType(string sConnection, string sCardType)
+{
+//Comando para Insertar
+OleDbCommand SpCardTypeAdd = new OleDbCommand("INSERT INTO CardType (CardType)VALUES (?)");
+ 
+int iRowAfected = 0;
+SMTConnection.ConnectionString = sConnection;
+SpCardTypeAdd.Connection = SMTConnection;
+ 
+SpCardTypeAdd.Parameters.Add("CardType", OleDbType.VarChar);
+SpCardTypeAdd.Parameters[0].Value = sCardType;
+ 
+SMTConnection.Open();
+ 
+iRowAfected = SpCardTypeAdd.ExecuteNonQuery();
+ 
+SMTConnection.Close();
+SMTConnection.Dispose();
+ 
+return iRowAfected;
+} 
+ 
+ 
+public static int EditCardType(string sConnection, string sCardType, int iPKID_CardType)
+{
+//Comando para Editar
+OleDbCommand SpCardTypeEdit = new OleDbCommand("UPDATE CardType SET CardType = ? WHERE (PKID_CardType = ?)");
+ 
+int iRowAfected = 0;
+SMTConnection.ConnectionString = sConnection;
+SpCardTypeEdit.Connection = SMTConnection;
+ 
+SpCardTypeEdit.Parameters.Add("CardType", OleDbType.VarChar);SpCardTypeEdit.Parameters.Add("PKID_CardType", OleDbType.Integer);
+SpCardTypeEdit.Parameters[0].Value = sCardType;SpCardTypeEdit.Parameters[1].Value = iPKID_CardType;
+ 
+SMTConnection.Open();
+ 
+iRowAfected = SpCardTypeEdit.ExecuteNonQuery();
+ 
+SMTConnection.Close();
+SMTConnection.Dispose();
+ 
+return iRowAfected;
+} 
+ 
+public static int DeleteCardType(string sConnection, int iPKID_CardType)
+{
+//Comando para Borrar
+OleDbCommand SpCardTypeDelete = new OleDbCommand("DELETE FROM CardType WHERE (PKID_CardType = ?)");
+ 
+int iRowAfected = 0;
+SMTConnection.ConnectionString = sConnection;
+SpCardTypeDelete.Connection = SMTConnection;
+ 
+SpCardTypeDelete.Parameters.Add("PKID_CardType", OleDbType.Integer);
+SpCardTypeDelete.Parameters[0].Value = iPKID_CardType;
+ 
+SMTConnection.Open();
+ 
+iRowAfected = SpCardTypeDelete.ExecuteNonQuery();
+ 
+SMTConnection.Close();
+SMTConnection.Dispose();
+ 
+return iRowAfected;
+} 
+ 
+#endregion 
+ 
+
+
+
+

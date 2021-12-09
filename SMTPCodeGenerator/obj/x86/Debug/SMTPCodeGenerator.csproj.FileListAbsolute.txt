@@ -1,0 +1,8 @@
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\bin\Debug\SMTPCodeGenerator.exe
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\bin\Debug\SMTPCodeGenerator.pdb
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.Properties.Resources.resources
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.exe
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.pdb
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.MainForm.resources
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.csproj.GenerateResource.Cache
+D:\Desarrollo\Visual Estudio\Apps\SMTPCodeGenerator\SMTPCodeGenerator\obj\x86\Debug\SMTPCodeGenerator.csprojResolveAssemblyReference.cache
